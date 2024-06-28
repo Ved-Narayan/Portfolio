@@ -2,6 +2,7 @@ body {
     background-color: #F0F8FF;
     color: black;
     font-family: 'Poppins', sans-serif;
+    
 }
 
 nav {
@@ -175,6 +176,7 @@ section .title span::after {
 
 .about .about-details .left {
     width: 45%;
+   
 }
 
 .about .topic {
@@ -187,9 +189,9 @@ p {
 
 .skills {
     background: #F0F8FF;
-    ;
+    
 }
-
+/* 
 .skills .content {
     padding: 40px 0;
     font-size: xx-large;
@@ -223,15 +225,47 @@ p {
 }
 
 .skills-details .boxes .topic {
-    font-size: xxx-large;
+    font-size: xx-large;
     color: #4070f4;
 }
 
 .skills-details .boxes .per {
     font-size: xxx-large;
     color: #4070f4;
-}
+} */
+.skills .content {
+    text-align: center;
+  }
+  
+  .skills .boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; 
+    
+  }
+  
+  .skills .box {
+    width: calc(25% - 20px); 
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+  }
 
+  .skills .box:hover{
+    background: #4070f4;
+    color: #fff;
+    transform: scale(1.10);
+  }
+  
+  .skills .box .topic {
+    font-size: 1.2em;
+    /* font-weight: bold; */
+    transition: all 0.4s ease;
+    
+  }
+  
 p {
     font-size: 20px;
 
@@ -293,6 +327,7 @@ p {
     margin-top: 10px;
 }
 
+
 .social-icons a {
     flex: 1;
     text-align: center;
@@ -302,14 +337,3 @@ p {
     margin-bottom: 20px;
 }
 
-@media only screen and (max-width: 768px) {
-    /* Styles for smaller screens */
-}
-
-@media only screen and (max-width: 480px) {
-    /* Styles for even smaller screens */
-}
-img {
-    max-width: 100%;
-    height: auto;
-}
