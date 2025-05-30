@@ -306,7 +306,7 @@ export default function Portfolio() {
                       : "border-black text-black hover:bg-black hover:text-white"
                   }`}
                 >
-                  <a href="/Resume.pdf" download="Ved_Narayan_Resume.pdf">
+                  <a href="/Resume_Ved.pdf" download="Ved_Narayan_Resume.pdf">
                     <Download className="mr-2" size={16} />
                     Resume
                   </a>
@@ -437,6 +437,14 @@ export default function Portfolio() {
                   tech: ["Python", "OOP", "File Handling", "Security"],
                   year: "2023",
                   status: "Completed",
+                },
+                {
+                  title: "Task Management (TickTickGo)",
+                  description:
+                    "Developed TickTickGo, a responsive task management application using TypeScript, and Tailwind CSS. Designed and implemented comprehensive task management features including priority-based organization, due datetracking with smart notifications, and interactive data visualizations.",
+                  tech: ["Next.js", "TypeScript", "Tailwind CSS", "React"],
+                  year: "2025",
+                  status: "Live",
                 },
               ].map((project, index) => (
                 <div
