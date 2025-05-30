@@ -156,12 +156,12 @@ export default function Portfolio() {
       />
 
       {/* Side Navigation */}
-      <nav className="fixed left-0 top-0 h-full w-20 z-40 flex flex-col items-center justify-between py-8">
+      <nav className="fixed left-0 top-0 h-full w-16 md:w-20 z-40 flex flex-col items-center justify-between py-4 md:py-8">
         {/* Logo */}
         <div
-          className={`w-12 h-12 rounded-full border-2 ${
+          className={`w-8 h-8 md:w-12 md:h-12 rounded-full border-2 ${
             isDarkMode ? "border-white" : "border-black"
-          } flex items-center justify-center font-bold text-lg cursor-pointer hover:scale-110 transition-all duration-300 hover:rotate-12`}
+          } flex items-center justify-center font-bold text-base md:text-lg cursor-pointer hover:scale-110 transition-all duration-300 hover:rotate-12`}
           style={{
             transform: `translateY(${isLoaded ? 0 : -50}px)`,
             opacity: isLoaded ? 1 : 0,
@@ -260,36 +260,29 @@ export default function Portfolio() {
       </button>
 
       {/* Main Content */}
-      <main className="ml-20">
+      <main className="ml-16 md:ml-20">
         {/* Intro Section */}
-        <section id="intro" className="min-h-screen flex items-center justify-center px-16 relative">
+        <section id="intro" className="min-h-screen flex items-center justify-center px-4 md:px-16 relative">
           <div className="max-w-4xl">
-            <div
-              className="space-y-8"
-              style={{
-                transform: `translateY(${isLoaded ? 0 : 100}px)`,
-                opacity: isLoaded ? 1 : 0,
-                transition: "all 1.2s cubic-bezier(0.16, 1, 0.3, 1)",
-                transitionDelay: "500ms",
-              }}
-            >
+            <div className="space-y-6 md:space-y-8">
               <div className="space-y-4">
-                <h1 className="text-7xl md:text-8xl font-light tracking-tight">
+                <h1 className="text-4xl md:text-7xl lg:text-8xl font-light tracking-tight">
                   Ved Narayan
                   <br />
                   <span className={`${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>Munipalli</span>
                 </h1>
                 <p
-                  className={`text-xl md:text-2xl font-light ${isDarkMode ? "text-gray-300" : "text-gray-700"} max-w-2xl`}
+                  className={`text-lg md:text-xl lg:text-2xl font-light ${isDarkMode ? "text-gray-300" : "text-gray-700"} max-w-2xl`}
                 >
                   Frontend Developer & Software Engineer crafting digital experiences with modern technologies
                 </p>
               </div>
 
-              <div className="flex items-center space-x-8 pt-8">
+              {/* Update button group */}
+              <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 pt-8">
                 <Button
                   onClick={() => scrollToSection("work")}
-                  className={`group px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl ${
+                  className={`group px-6 md:px-8 py-3 md:py-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl w-full md:w-auto ${
                     isDarkMode ? "bg-white text-black hover:bg-gray-100" : "bg-black text-white hover:bg-gray-800"
                   }`}
                 >
@@ -300,7 +293,7 @@ export default function Portfolio() {
                 <Button
                   variant="outline"
                   asChild
-                  className={`px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl ${
+                  className={`px-6 md:px-8 py-3 md:py-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl w-full md:w-auto ${
                     isDarkMode
                       ? "border-white text-black hover:bg-white hover:text-black"
                       : "border-black text-black hover:bg-black hover:text-white"
@@ -334,9 +327,9 @@ export default function Portfolio() {
         </section>
 
         {/* Work Experience */}
-        <section id="work" className="min-h-screen px-16 py-32">
+        <section id="work" className="min-h-screen px-4 md:px-16 py-16 md:py-32">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-5xl font-light mb-20 tracking-tight">Work Experience</h2>
+            <h2 className="text-3xl md:text-5xl font-light mb-12 md:mb-20 tracking-tight">Work Experience</h2>
 
             <div className="space-y-16">
               {[
@@ -416,11 +409,11 @@ export default function Portfolio() {
         </section>
 
         {/* Projects */}
-        <section id="projects" className={`min-h-screen px-16 py-32 ${isDarkMode ? "bg-gray-900/30" : "bg-gray-50"}`}>
+        <section id="projects" className={`min-h-screen px-4 md:px-16 py-16 md:py-32 ${isDarkMode ? "bg-gray-900/30" : "bg-gray-50"}`}>
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-5xl font-light mb-20 tracking-tight">Selected Projects</h2>
+            <h2 className="text-3xl md:text-5xl font-light mb-12 md:mb-20 tracking-tight">Selected Projects</h2>
 
-            <div className="grid md:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
               {[
                 {
                   title: "HR Management Dashboard",
@@ -526,9 +519,9 @@ export default function Portfolio() {
         </section>
 
         {/* About */}
-        <section id="about" className="min-h-screen px-16 py-32">
+        <section id="about" className="min-h-screen px-4 md:px-16 py-16 md:py-32">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-5xl font-light mb-20 tracking-tight">About</h2>
+            <h2 className="text-3xl md:text-5xl font-light mb-12 md:mb-20 tracking-tight">About</h2>
 
             <div className="space-y-16">
               <div
@@ -553,7 +546,7 @@ export default function Portfolio() {
                   Technical Skills
                 </h3>
 
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
                   {[
                     { name: "C", icon: "🔧", category: "Language" },
                     { name: "C++", icon: "⚡", category: "Language" },
@@ -698,9 +691,9 @@ export default function Portfolio() {
         </section>
 
         {/* Contact */}
-        <section id="contact" className={`min-h-screen px-16 py-32 ${isDarkMode ? "bg-gray-900/30" : "bg-gray-50"}`}>
+        <section id="contact" className={`min-h-screen px-4 md:px-16 py-16 md:py-32 ${isDarkMode ? "bg-gray-900/30" : "bg-gray-50"}`}>
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-5xl font-light mb-20 tracking-tight">Get In Touch</h2>
+            <h2 className="text-3xl md:text-5xl font-light mb-12 md:mb-20 tracking-tight">Get In Touch</h2>
 
             <div
               style={{
