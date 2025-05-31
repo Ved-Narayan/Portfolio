@@ -118,9 +118,9 @@ export default function Portfolio() {
         isDarkMode ? "bg-black text-white" : "bg-white text-black"
       } overflow-x-hidden`}
     >
-      {/* Custom cursor */}
+      {/* Custom cursor - hidden on mobile */}
       <div
-        className={`fixed w-6 h-6 rounded-full pointer-events-none z-50 transition-all duration-100 ease-out will-change-transform ${
+        className={`fixed w-6 h-6 rounded-full pointer-events-none z-50 transition-all duration-100 ease-out will-change-transform hidden sm:hidden md:block ${
           isDarkMode ? "bg-white mix-blend-difference" : "bg-black mix-blend-difference"
         }`}
         style={{
@@ -367,9 +367,9 @@ export default function Portfolio() {
                       isDarkMode ? "bg-gray-900/50 group-hover:bg-gray-900/80" : "bg-gray-50 group-hover:bg-gray-100"
                     }`}
                   >
-                    <div className="flex justify-between items-start mb-4">
+                    <div className="flex justify-between items-start mb-4 flex-col md:flex-row">
                       <div>
-                        <h3 className="text-2xl font-medium">
+                        <h3 className="text-2xl font-medium mb-2 md:mb-0">
                           {job.title}
                           {job.subtitle && (
                             <span className={`text-lg ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
@@ -380,10 +380,10 @@ export default function Portfolio() {
                         </h3>
                         <p className={`text-lg ${isDarkMode ? "text-blue-400" : "text-blue-600"}`}>{job.company}</p>
                       </div>
-                      <div className="flex items-center space-x-2">
+                      <div className="flex items-center space-x-2 mt-2 md:mt-0">
                         <Badge
                           variant={job.status === "Current" ? "default" : "outline"}
-                          className={`text-sm ${
+                          className={`text-xs md:text-sm ${
                             isDarkMode
                               ? job.status === "Current"
                                 ? "bg-green-600 text-white"
@@ -393,8 +393,11 @@ export default function Portfolio() {
                                 : "border-gray-400 text-gray-700"
                           }`}
                         >
-                          <Calendar className="mr-1" size={12} />
-                          {job.period}
+                          <Calendar className="mr-1 hidden md:inline" size={12} />
+                          <span className="md:hidden">
+                            {job.period.split(" - ").pop()?.split(" ")[0]} {/* Shows only month for mobile */}
+                          </span>
+                          <span className="hidden md:inline">{job.period}</span>
                         </Badge>
                       </div>
                     </div>
