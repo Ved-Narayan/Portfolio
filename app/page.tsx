@@ -24,6 +24,7 @@ import {
   Zap,
   Target,
 } from "lucide-react"
+import Image from "next/image"
 
 // Create a stable array of animation properties to avoid hydration mismatches
 const backgroundElements = [
@@ -128,7 +129,7 @@ export default function Portfolio() {
         }}
       />
 
-      {/* Interactive background elements - using stable predefined positions */}
+      {/* Interactive background elements - using stable predefined positions */} 
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
         {backgroundElements.map((elem, i) => (
           <div
@@ -265,17 +266,30 @@ export default function Portfolio() {
         <section id="intro" className="min-h-screen flex items-center justify-center px-4 md:px-16 relative">
           <div className="max-w-4xl">
             <div className="space-y-6 md:space-y-8">
-              <div className="space-y-4">
-                <h1 className="text-4xl md:text-7xl lg:text-8xl font-light tracking-tight">
-                  Ved Narayan
-                  <br />
-                  <span className={`${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>Munipalli</span>
-                </h1>
-                <p
-                  className={`text-lg md:text-xl lg:text-2xl font-light ${isDarkMode ? "text-gray-300" : "text-gray-700"} max-w-2xl`}
-                >
-                  Frontend Developer & Software Engineer crafting digital experiences with modern technologies
-                </p>
+              <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
+                {/* Add profile image */}
+                <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-2xl overflow-hidden shadow-2xl">
+                  <Image
+                    src="/ved.jpg"
+                    alt="Ved Narayan"
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-500"
+                    priority
+                  />
+                </div>
+
+                <div className="space-y-4 text-center md:text-left">
+                  <h1 className="text-4xl md:text-7xl lg:text-8xl font-light tracking-tight">
+                    Ved Narayan
+                    <br />
+                    <span className={`${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>Munipalli</span>
+                  </h1>
+                  <p
+                    className={`text-lg md:text-xl lg:text-2xl font-light ${isDarkMode ? "text-gray-300" : "text-gray-700"} max-w-2xl`}
+                  >
+                    Frontend Developer & Software Engineer crafting digital experiences with modern technologies
+                  </p>
+                </div>
               </div>
 
               {/* Update button group */}
