@@ -629,7 +629,7 @@ export default function Portfolio() {
                       <p className={`${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
                         SRM University (2021-Present)
                       </p>
-                      <p className={`text-sm ${isDarkMode ? "text-gray-500" : "text-gray-500"}`}>CGPA: 7.63/10.0</p>
+                      <p className={`text-sm ${isDarkMode ? "text-gray-500" : "text-gray-500"}`}>CGPA: 7.74/10.0</p>
                     </div>
                     <div className={`p-4 rounded-lg ${isDarkMode ? "bg-gray-900/50" : "bg-gray-50"}`}>
                       <h4 className="font-medium">Class 12th</h4>
