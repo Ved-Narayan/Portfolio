@@ -19,7 +19,7 @@ A modern, responsive portfolio website showcasing my work as a Frontend Develope
 - **Styling**: Tailwind CSS
 - **UI Components**: shadcn/ui
 - **Icons**: Lucide React
-- **Deployment**: Vercel
+- **Deployment**: Netlify
 
 ## 📁 Project Structure
 
