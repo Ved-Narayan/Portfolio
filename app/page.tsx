@@ -440,6 +440,7 @@ export default function Portfolio() {
                   tech: ["Next.js", "TypeScript", "Tailwind CSS", "React"],
                   year: "2025",
                   status: "Live",
+                  livePreview: "https://hrdashboard-advanced.netlify.app/",
                 },
                 {
                   title: "Net Banking System",
@@ -466,6 +467,15 @@ export default function Portfolio() {
                   year: "2025",
                   status: "Live",
                   livePreview: "https://fitnesstrackerdashboard.netlify.app/",
+                },
+                {
+                  title: "Ecommerce",
+                  description:
+                    "Here's an eCommerce site I built to practice dynamic UI design and improve my skills in React and Tailwind CSS. It features a clean product listing layout, responsive design, smooth hover interactions, and a minimal shopping cart flow. I focused on keeping the user experience simple and intuitive while also experimenting with component reusability and modern frontend techniques.",
+                  tech: ["React.js", "Tailwind CSS", "Favicons"],
+                  year: "2025",
+                  status: "Live",
+                  livePreview: "https://ved-ecommerce-site.netlify.app/",
                 },
               ].map((project, index) => (
                 <div
@@ -543,6 +553,30 @@ export default function Portfolio() {
                     </CardContent>
                   </Card>
 
+                  {/* Live Preview Overlay for HR Management Dashboard */}
+                  {project.title === "HR Management Dashboard" && hoveredProject === project.title && (
+                    <a
+                      href={project.livePreview}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute inset-0 z-20 flex items-center justify-center bg-black/80 bg-opacity-80 transition-opacity duration-300 rounded-2xl"
+                      style={{ backdropFilter: "blur(2px)" }}
+                      onClick={e => e.stopPropagation()}
+                    >
+                      <div className="w-[90%] h-[70%] max-w-2xl max-h-[400px] border-4 border-blue-400 rounded-xl overflow-hidden shadow-2xl">
+                        <iframe
+                          src={project.livePreview}
+                          title="HR Management Dashboard Live Preview"
+                          className="w-full h-full"
+                          style={{ border: "none" }}
+                        />
+                      </div>
+                      <span className="absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 bg-blue-600 text-white rounded-full shadow-lg text-lg font-semibold">
+                        Click to open live site
+                      </span>
+                    </a>
+                  )}
+
                   {/* Live Preview Overlay for TickTickGo */}
                   {project.title === "Task Management (TickTickGo)" && hoveredProject === project.title && (
                     <a
@@ -590,6 +624,30 @@ export default function Portfolio() {
                       </span>
                     </a>
                   )}
+
+                  {/* Live Preview Overlay for Ecommerce */}
+                  {project.title === "Ecommerce" && hoveredProject === project.title && (
+                    <a
+                      href={project.livePreview}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute inset-0 z-20 flex items-center justify-center bg-black/80 bg-opacity-80 transition-opacity duration-300 rounded-2xl"
+                      style={{ backdropFilter: "blur(2px)" }}
+                      onClick={e => e.stopPropagation()}
+                    >
+                      <div className="w-[90%] h-[70%] max-w-2xl max-h-[400px] border-4 border-blue-400 rounded-xl overflow-hidden shadow-2xl">
+                        <iframe
+                          src={project.livePreview}
+                          title="Ecommerce Live Preview"
+                          className="w-full h-full"
+                          style={{ border: "none" }}
+                        />
+                      </div>
+                      <span className="absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 bg-blue-600 text-white rounded-full shadow-lg text-lg font-semibold">
+                        Click to open live site
+                      </span>
+                    </a>
+                  )}
                 </div>
               ))}
             </div>
@@ -611,6 +669,16 @@ export default function Portfolio() {
                   title: "Fitness Tracking Dashboard",
                   url: "https://fitnesstrackerdashboard.netlify.app/",
                   previewTitle: "Fitness Tracking Dashboard Live Preview",
+                },
+                {
+                  title: "HR Management Dashboard",
+                  url: "https://hrdashboard-advanced.netlify.app/",
+                  previewTitle: "HR Management Dashboard Live Preview",
+                },
+                {
+                  title: "Ecommerce",
+                  url: "https://ved-ecommerce-site.netlify.app/",
+                  previewTitle: "Ecommerce Live Preview",
                 },
               ].map((project, idx) => (
                 <div
