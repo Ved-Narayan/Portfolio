@@ -708,7 +708,7 @@ export default function Portfolio() {
                         aria-label={`Preview of ${project.title}`}
                         onClick={e => e.stopPropagation()}
                       >
-                        <div className="relative w-full h-[440px] rounded-xl overflow-hidden border-4 border-blue-400 shadow-2xl">
+                        <div className="relative w-full h-[440px] rounded-xl overflow-hidden /*border-4 border-blue-400*/ shadow-2xl">
                           <iframe
                             src={project.url}
                             title={project.previewTitle}
