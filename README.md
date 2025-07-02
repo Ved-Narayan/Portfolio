@@ -149,14 +149,6 @@ The resume is available as a downloadable PDF. Replace `public/resume.pdf` with 
 - **LinkedIn**: [https://www.linkedin.com/in/ved-narayan/](https://www.linkedin.com/in/ved-narayan/)
 - **Email**: vednarayan1980@gmail.com
 
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Ved-Narayan/portfolio/issues).
-
 ## 📞 Contact
 
 Ved Narayan Munipalli - vednarayan1980@gmail.com
