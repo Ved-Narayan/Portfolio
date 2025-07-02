@@ -473,7 +473,7 @@ export default function Portfolio() {
                   description:
                     "Here's an eCommerce site I built to practice dynamic UI design and improve my skills in React and Tailwind CSS. It features a clean product listing layout, responsive design, smooth hover interactions, and a minimal shopping cart flow. I focused on keeping the user experience simple and intuitive while also experimenting with component reusability and modern frontend techniques.",
                   tech: ["React.js", "Tailwind CSS", "Favicons"],
-                  year: "2025",
+                  year: "2024",
                   status: "Live",
                   livePreview: "https://ved-ecommerce-site.netlify.app/",
                 },
