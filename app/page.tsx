@@ -52,6 +52,7 @@ export default function Portfolio() {
   const [isLoaded, setIsLoaded] = useState(false)
   const [scrollY, setScrollY] = useState(0)
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
+  const [hoveredProject, setHoveredProject] = useState<string | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -270,7 +271,7 @@ export default function Portfolio() {
                 {/* Add profile image */}
                 <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="/ved.jpg"
+                    src="/ved.jpg" // Add your photo to the public folder
                     alt="Ved Narayan"
                     fill
                     className="object-cover hover:scale-105 transition-transform duration-500"
@@ -313,7 +314,7 @@ export default function Portfolio() {
                       : "border-black text-black hover:bg-black hover:text-white"
                   }`}
                 >
-                  <a href="/Resume_Ved.pdf" download="Ved_Narayan_Resume.pdf">
+                  <a href="/Resume.pdf" download="Ved_Narayan_Resume.pdf">
                     <Download className="mr-2" size={16} />
                     Resume
                   </a>
@@ -455,17 +456,29 @@ export default function Portfolio() {
                   tech: ["Next.js", "TypeScript", "Tailwind CSS", "React"],
                   year: "2025",
                   status: "Live",
+                  livePreview: "https://ticktickgo-your-personal-todo-app.netlify.app/",
+                },
+                {
+                  title: "Fitness Tracking Dashboard",
+                  description:
+                    "I built the Fitness Tracker Dashboard as a responsive and visually engaging web application to help users easily track their daily health metrics. The dashboard showcases key data like steps taken, calories burned, heart rate, water intake, and sleep duration using clean card components and smooth progress visuals. ",
+                  tech: ["Next.js", "TypeScript", "Tailwind CSS", "React"],
+                  year: "2025",
+                  status: "Live",
+                  livePreview: "https://fitnesstrackerdashboard.netlify.app/",
                 },
               ].map((project, index) => (
                 <div
                   key={index}
-                  className="group cursor-pointer"
+                  className="group cursor-pointer relative"
                   style={{
                     transform: `translateY(${isLoaded ? 0 : 50}px)`,
                     opacity: isLoaded ? 1 : 0,
                     transition: "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
                     transitionDelay: `${1200 + index * 200}ms`,
                   }}
+                  onMouseEnter={() => setHoveredProject(project.title)}
+                  onMouseLeave={() => setHoveredProject(null)}
                 >
                   <Card
                     className={`h-full transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-2xl group-hover:rotate-1 ${
@@ -529,6 +542,136 @@ export default function Portfolio() {
                       </Button>
                     </CardContent>
                   </Card>
+
+                  {/* Live Preview Overlay for TickTickGo */}
+                  {project.title === "Task Management (TickTickGo)" && hoveredProject === project.title && (
+                    <a
+                      href={project.livePreview}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute inset-0 z-20 flex items-center justify-center bg-black/80 bg-opacity-80 transition-opacity duration-300 rounded-2xl"
+                      style={{ backdropFilter: "blur(2px)" }}
+                      onClick={e => e.stopPropagation()}
+                    >
+                      <div className="w-[90%] h-[70%] max-w-2xl max-h-[400px] border-4 border-blue-400 rounded-xl overflow-hidden shadow-2xl">
+                        <iframe
+                          src={project.livePreview}
+                          title="TickTickGo Live Preview"
+                          className="w-full h-full"
+                          style={{ border: "none" }}
+                        />
+                      </div>
+                      <span className="absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 bg-blue-600 text-white rounded-full shadow-lg text-lg font-semibold">
+                        Click to open live site
+                      </span>
+                    </a>
+                  )}
+
+                  {/* Live Preview Overlay for Fitness Tracking Dashboard */}
+                  {project.title === "Fitness Tracking Dashboard" && hoveredProject === project.title && (
+                    <a
+                      href={project.livePreview}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute inset-0 z-20 flex items-center justify-center bg-black/80 bg-opacity-80 transition-opacity duration-300 rounded-2xl"
+                      style={{ backdropFilter: "blur(2px)" }}
+                      onClick={e => e.stopPropagation()}
+                    >
+                      <div className="w-[90%] h-[70%] max-w-2xl max-h-[400px] border-4 border-blue-400 rounded-xl overflow-hidden shadow-2xl">
+                        <iframe
+                          src={project.livePreview}
+                          title="Fitness Tracking Dashboard Live Preview"
+                          className="w-full h-full"
+                          style={{ border: "none" }}
+                        />
+                      </div>
+                      <span className="absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 bg-blue-600 text-white rounded-full shadow-lg text-lg font-semibold">
+                        Click to open live site
+                      </span>
+                    </a>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Live Projects */}
+        <section id="live-projects" className={`min-h-[60vh] px-4 md:px-16 py-16 md:py-32 ${isDarkMode ? "bg-gray-900/40" : "bg-blue-50"}`}>
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-light mb-12 md:mb-20 tracking-tight">Live Projects</h2>
+            <div className="flex flex-wrap gap-8 justify-center">
+              {[
+                {
+                  title: "Task Management (TickTickGo)",
+                  url: "https://ticktickgo-your-personal-todo-app.netlify.app/",
+                  previewTitle: "TickTickGo Live Preview",
+                },
+                {
+                  title: "Fitness Tracking Dashboard",
+                  url: "https://fitnesstrackerdashboard.netlify.app/",
+                  previewTitle: "Fitness Tracking Dashboard Live Preview",
+                },
+              ].map((project, idx) => (
+                <div
+                  key={project.title}
+                  className={`relative group flex flex-col items-center rounded-2xl overflow-hidden shadow-xl border transition-all duration-300 ${
+                    isDarkMode ? "bg-black border-gray-800" : "bg-white border-gray-200"
+                  }`}
+                  style={{
+                    width: "clamp(320px, 28vw, 420px)", // Increased width
+                    height: "600px",                    // Increased height
+                    aspectRatio: "9/18",                // Slightly taller than 9/16
+                    transform: `translateY(${isLoaded ? 0 : 50}px)`,
+                    opacity: isLoaded ? 1 : 0,
+                    transition: "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
+                    transitionDelay: `${1200 + idx * 200}ms`,
+                  }}
+                >
+                  <div className="w-full flex-1 flex flex-col">
+                    <div className="flex-1 flex items-center justify-center">
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full h-full block"
+                        style={{ minHeight: 0, minWidth: 0 }}
+                        tabIndex={-1}
+                        aria-label={`Preview of ${project.title}`}
+                        onClick={e => e.stopPropagation()}
+                      >
+                        <div className="relative w-full h-[440px] rounded-xl overflow-hidden border-4 border-blue-400 shadow-2xl">
+                          <iframe
+                            src={project.url}
+                            title={project.previewTitle}
+                            className="w-full h-full"
+                            style={{ border: "none" }}
+                            allow="fullscreen"
+                          />
+                          <span className="absolute bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-blue-600 text-white rounded-full shadow text-xs font-semibold z-10">
+                            Click to open live site
+                          </span>
+                        </div>
+                      </a>
+                    </div>
+                    <div className="flex flex-col items-center justify-center py-4 px-2">
+                      <h3 className={`text-lg font-semibold text-center mb-2 ${isDarkMode ? "text-white" : "text-black"}`}>
+                        {project.title}
+                      </h3>
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`inline-block px-4 py-2 rounded-full font-medium shadow hover:scale-105 transition-all duration-300 ${
+                          isDarkMode
+                            ? "bg-blue-600 text-white hover:bg-blue-500"
+                            : "bg-blue-600 text-white hover:bg-blue-700"
+                        }`}
+                      >
+                        Visit Live Site
+                      </a>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -550,7 +693,7 @@ export default function Portfolio() {
                 }}
               >
                 <p className={`text-2xl leading-relaxed font-light ${isDarkMode ? "text-gray-300" : "text-gray-700"}`}>
-                  I'm a passionate Frontend Developer and Software Engineer currently pursuing my Bachelor's degree at
+                  I'm a passionate Frontend Developer and Software Engineer currently graduated my Bachelor's degree at
                   SRM University. I specialize in creating dynamic, user-friendly web applications with modern
                   technologies like React, TypeScript, and Next.js.
                 </p>
