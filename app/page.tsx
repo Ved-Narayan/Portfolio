@@ -844,7 +844,7 @@ export default function Portfolio() {
                     </div>
                     <div className={`p-4 rounded-lg ${isDarkMode ? "bg-gray-900/50" : "bg-gray-50"}`}>
                       <h4 className="font-medium">Class 12th</h4>
-                      <p className={`${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>BIEAP (87%)</p>
+                      <p className={`${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>BIEAP (88.7%)</p>
                     </div>
                   </div>
                 </div>
