@@ -352,7 +352,7 @@ export default function Portfolio() {
                   title: "Software Developer Intern",
                   subtitle: "Frontend",
                   company: "Finsocial Digital Systems",
-                  period: "Dec 2024 - Present",
+                  period: "Dec 2024 - July 2025",
                   description:
                     "Developing interactive websites and trading platforms with React.js, implementing backtesting features and real-time chat assistants with voice capabilities.",
                   status: "Current",
